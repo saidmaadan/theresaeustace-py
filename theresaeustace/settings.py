@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 # DEBUG = True
 # DEBUG = config('DEBUG', default=True, cast=bool)
 DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = ["*", "www.theresaeustace.com",
+ALLOWED_HOSTS = ["www.theresaeustace.com",
                  "http://www.theresaeustace.com", "https://www.theresaeustace.com", "theresaeustace.com", "https://theresaeustace.up.railway.app", "*"]
 
 CSRF_TRUSTED_ORIGINS = ['https://theresaeustace.up.railway.app',
