@@ -23,13 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-edqg&%=q-cvb+wh2ydnsxcn5+ul5rerc6znpgq$@4mgh%-uewYU788rbr'
+
 SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = config('DEBUG', default=True, cast=bool)
-
-ALLOWED_HOSTS = ["theresaeustace.herokuapp.com", "www.theresaeustace.com",
+# DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
+ALLOWED_HOSTS = ["*", "www.theresaeustace.com",
                  "http://www.theresaeustace.com", "https://www.theresaeustace.com", "theresaeustace.com", "https://theresaeustace.up.railway.app", "*"]
 
 CSRF_TRUSTED_ORIGINS = ['https://theresaeustace.up.railway.app',
@@ -97,12 +97,12 @@ AUTH_USER_MODEL = 'accounts.Account'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 DATABASES = {
     'default': {
@@ -114,9 +114,9 @@ DATABASES = {
     }
 }
 
-# # if os.environ.get('DJANGO_PRODUCTION'):
-# DATABASES = {'default': dj_database_url.config(
-#     default='postgres://postgres:config(PASSWORD)@localhost/config(NAME)')}
+# if os.environ.get('DJANGO_PRODUCTION'):
+DATABASES = {'default': dj_database_url.config(
+    default='postgres://postgres:config(PASSWORD)@localhost/config(NAME)')}
 
 
 
@@ -162,6 +162,10 @@ STATICFILES_FINDERS = [
 ]
 
 STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
 STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
     'theresaeustace/static',
@@ -198,5 +202,6 @@ DEFAULT_FROM_EMAIL = config('DEFAULT_EMAIL')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
