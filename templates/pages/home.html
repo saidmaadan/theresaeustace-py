@@ -1,0 +1,311 @@
+{% extends 'base.html' %}
+{% block title %} | Home {% endblock %}
+{% block content %}
+{% load static %}
+{% load sass_tags %}
+
+<!-- Website Body Start -->
+<main>
+  <!-- abour-us-area-start -->
+
+  <div class="about-us-area mt-20">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-md-12 p-0">
+          <div class="about-us-img">
+            <img class="img relative" src="https://theresaeustace.s3.us-west-2.amazonaws.com/assets/home.png" alt="image" >
+          </div>
+          {% comment %} <div class="about-us-img-content">
+            <h2>We have 35+ years of experience. We offer marketing and consulting services</h2>
+          </div> {% endcomment %}
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12">
+          <div class="about-us-content mt-35">
+
+            <div class="section-title mb-10">
+              </div>
+            <h4 style="font-size: 18px; color:black; font-weight:400;"><span style="color:#8961e8; font-weight:900;">Fat to Fit:</span> Your Journey to Fitness Starts Here!</h4>
+            <h2 class="mb-10" style="font-size: 30px; color:black; font-weight:900;">My Obesity, Overweight, and Diabetes </h2>
+          
+            <p class="about-us-text-2" style="line-height: 28px;">Discover inspiring stories, expert advice, and transformative insights with our collection of fitness books. Whether you're looking to lose weight, manage diabetes, or simply lead a healthier lifestyle, we have the resources to help you achieve your goals. Our flagship title, "Fat to Fit: My Obesity, Overweight, and Diabetes," is a testament to the power of determination and the right guidance.</p>
+
+            <div class="about-us-button mt-20">
+             <a class="button button-style-3" href="about.html">Go to book store <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- abour-us-area-end -->
+    
+<!-- team-area-end -->
+<div class="team-area mt-80">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="section-title text-center m-auto">
+          
+          <h2 class="mb-30">Feature Release</h2>
+        </div>
+      </div>
+    </div>
+    <div class="team-member-active">
+      {% if books %}	
+      {% for book in books %}
+      <div class="single-member-details">
+        <div class="team-member-box">
+          
+          <div class="team-member-img">
+            {% if book.images %}
+              <img class="img" src="{{ book.images.url }}" alt="image" style="min-height: 280px; max-height: 280px; background-size; cover; ">
+              {% else %}
+              <img class="" src="https://sophiabent.s3.us-west-2.amazonaws.com/media/photos/book/SB-The_Pregnancy_Pact-BOOK.png" alt="{{ book.title }}">
+            {% endif %}
+          </div>
+          <div class="team-member-content-box1 text-center">
+            <div class="team-member-content">
+             <h3 style="font-size: 16px; font-weight: 400;">{{ book.title }} {{ book.sub_title }}</h3>
+             
+            </div>
+          </div>
+          <div class="team-member-content-box2 text-center pb-10">
+            <div class="team-member-content mb-20">
+              <div class="about-us-button">
+                <a class="button button-style-3" href="{{ book.amazon_url }}">Buy Now <i class="fas fa-arrow-right"></i></a>
+               </div>
+               <a href="{{ book.get_url }}">
+                <h3 class="mt-20 mb-10 " style="font-size: 18px;"><span class="pr-10">{{ book.title }}</span>{{ book.sub_title }}</h3></a>
+              
+            
+              <p>{{ book.description|truncatechars:100 | safe }}</p>
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+<!-- team-area-end -->
+
+
+    <!-- services-area-end -->
+      <div class="services-area mt-120">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="section-title text-center m-auto">
+
+                <h2 class="mb-50">Our Mission</h2>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+               <div class="single-generating d-flex mb-30">
+                  <div class="generating-icon">
+                     <i class="fas fa-search-dollar"></i>
+                  </div>
+                  <div class="generating-cap">
+                     <h4>Empower Through Education</h4>
+                     <p>Provide accessible and comprehensive resources that empower individuals to make informed decisions about their health and fitness.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+               <div class="single-generating d-flex mb-30">
+                  <div class="generating-icon">
+                     <i class="far fa-file-code pl-10"></i>
+                  </div>
+                  <div class="generating-cap">
+                     <h4>Promote Sustainable Wellness</h4>
+                     <p>Encourage sustainable lifestyle changes that lead to long-term health and well-being, focusing on practical and achievable goals.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+               <div class="single-generating d-flex mb-30">
+                  <div class="generating-icon">
+                     <i class="fas fa-bullhorn"></i>
+                  </div>
+                  <div class="generating-cap">
+                     <h4>Foster a Supportive Community</h4>
+                     <p> Build a supportive and inclusive community where individuals can share their journeys, find motivation, and receive encouragement.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+               <div class="single-generating d-flex mb-30">
+                  <div class="generating-icon">
+                     <i class="fas fa-chart-line"></i>
+                  </div>
+                  <div class="generating-cap">
+                     <h4>Inspire Transformation</h4>
+                     <p>Share inspiring stories of personal transformation to motivate others to embark on their own fitness journeys and achieve their goals
+                        
+                     </p>
+                  </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- services-area-end -->
+
+   
+
+    <!-- testimonial-area-end -->
+      {% comment %} <div class="testimonial-area relative mt-80 pt-80">
+          <div class="testimonial-shape">
+            <img src="img/tst-shape.png" alt="image">
+          </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12">
+              <div class="section-title text-center m-auto">
+                <span>Testimonial</span>
+                <h2 class="mb-30">We are very glad to get client review.</h2> 
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-active">
+            <div class="single-testimonial">
+              <div class="client-avatar">
+               <img src="img/avatar/client1.png" alt="client1"> 
+              </div>
+              <div class="client-content-wraper">
+                <div class="client-rewiew">
+                  <ul>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                  </ul>
+                </div>
+                <div class="client-content">
+                  <h4>Jeremy Mathiue</h4>
+                  <h6>ECO marveltheme</h6>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed eiusmod tempor incubtconsectetur aliqua. Ultra enim ad minim veniam, quis nostrud exercitatio ullamgco laboris nisi ut com.</p>
+                </div>
+              </div>
+            </div>
+            <div class="single-testimonial">
+              <div class="client-avatar">
+                <img src="img/avatar/client2.png" alt="client1">
+              </div>
+              <div class="client-content-wraper">
+                <div class="client-rewiew">
+                  <ul>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                  </ul>
+                </div>
+                <div class="client-content">
+                  <h4>Jeremy Mathiue</h4>
+                  <h6>ECO marveltheme</h6>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed eiusmod tempor incubtconsectetur aliqua. Ultra enim ad minim veniam, quis nostrud exercitatio ullamgco laboris nisi ut com.</p>
+                </div>
+              </div>
+            </div>
+            <div class="single-testimonial">
+              <div class="client-avatar">
+                <img src="img/avatar/client1.png" alt="client1">
+              </div>
+              <div class="client-content-wraper">
+                <div class="client-rewiew">
+                  <ul>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                  </ul>
+                </div>
+                <div class="client-content">
+                  <h4>Jeremy Mathiue</h4>
+                  <h6>ECO marveltheme</h6>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed eiusmod tempor incubtconsectetur aliqua. Ultra enim ad minim veniam, quis nostrud exercitatio ullamgco laboris nisi ut com.</p>
+                </div>
+              </div>
+            </div>
+            <div class="single-testimonial">
+              <div class="client-avatar">
+               <img src="img/avatar/client2.png" alt="client1"> 
+              </div>
+              <div class="client-content-wraper">
+                <div class="client-rewiew">
+                  <ul>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                  </ul>
+                </div>
+                <div class="client-content">
+                  <h4>Jeremy Mathiue</h4>
+                  <h6>ECO marveltheme</h6>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed eiusmod tempor incubtconsectetur aliqua. Ultra enim ad minim veniam, quis nostrud exercitatio ullamgco laboris nisi ut com.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> {% endcomment %}
+    <!-- testimonial-area-end -->
+
+   
+
+    <!-- latest-blog-area-start -->
+      <div class="latest-blog-area mt-90 mb-90">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="section-title text-center m-auto">
+                
+                <h2 class="mb-30">Latest Articles</h2>
+              </div>
+            </div>
+          </div>
+          <div class="latest-blog-active">
+            {% for post in posts %}
+            <div class="single-latest-blog">
+              <div class="latest-blog-img relative">
+                <img class="img" src="{{ post.image.url }}" alt="{{ post.title }}" style="width: 100%; min-height: 200px; max-height: 200px; object-fit: cover; background-image: cover;">
+                <span>
+                  <a href="{{ post.get_url }}"><i class="fas fa-plus"></i></a>
+                </span>
+              </div>
+              <div class="latest-blog-content">
+                <div class="blog-meta mb-10">
+                  <a class="pr-15" href="{{ post.get_url }}"><i class="fas fa-calendar-alt"></i> {{ post.date }}</a>
+                  
+                  <a href="{{ post.get_url }}"><i class="fas fa-user"></i>{{ post.author.full_name }}</a>
+                </div>
+                <h3><a href="{{ post.get_url }}">{{ post.title }}</a></h3>
+                <div class="blog-button">
+                  <a class="button button-style-3" href="{{ post.get_url }}">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    <!-- latest-blog-area-end -->
+
+   
+</main>
+<!-- Website Body Start -->
+
+
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block title %} | About {% endblock %}
+{% block content %}
+{% load static %}
+{% load sass_tags %}
+
+
+<!-- breadcrumb-area-start -->
+{% if featured_post %}	
+{% for post in featured_post %}
+  <div class="breadcrumb-area" data-background="{{ post.image.url }}">
+    <div class="container">
+      <div class="breadcrumb-content relative">
+        <div class="breadcrumb-title">
+          <h2 class="text-left"><a href= "{{ post.get_url }}">{{ post.title }}</a></h2>
+          <p class="text-white">
+            <span style="font-size: 22px;">  {{ post.content|truncatechars:100 | safe }}</span></p>
+        </div>
+        <div class="breadcrumb-menu">
+          <ul>
+            
+            <li class="breadcrumb">Category </li>
+            <li class="breadcrumb-active"><a  href="{% url 'posts' %}">All</a></li>
+            {% for category in category_links %}
+            <li class="breadcrumb-active"><a href="{{ category.get_url }}">{{ category.category_name }}</a></li>
+            {% endfor %}
+            {% comment %} <li><a href="index.html">Home</a></li>
+            <li class="breadcrumb-active">Blog</li> {% endcomment %}
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{% endif %}
+<!-- breadcrumb-area-end -->
+
+<!-- latest-blog-area-start -->
+<div class="latest-blog-area mt-80">
+    <div class="container">
+      <div class="row">
+        {% if posts %}	
+        {% for post in posts %}
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 ">
+          <div class="single-latest-blog mb-50">
+            <div class="latest-blog-img relative">
+              <img class="img" src="{{ post.image.url }}" alt="image" style="width: 100%; min-height: 250px; max-height: 250px; object-fit: cover; background-image: cover;">
+              <span>
+                <a href="{{ post.get_url }}"><i class="fas fa-plus"></i></a>
+              </span>
+            </div>
+            <div class="latest-blog-content">
+              <div class="blog-meta mb-20">
+                <a class="pr-15" href="{{ post.get_url }}"><i class="fas fa-calendar-alt"></i>  {{ post.date }}</a>
+                <a href="{{ post.get_url }}">
+                  {% if post.author.user_picture %}
+                    <img src="{{ post.author.user_picture.url }}" alt="{{ post.author.first_name }}" class="icon icon-style-1" style="width: 15px; height:15px;">
+                  {% elif post.userprofile.profile_picture %}
+                    <img src="{{ post.userprofile.profile_picture.url }}" alt="{{ post.author.first_name }}" class="icon icon-style-1" style="width: 15px; height:15px;">
+                  {% endif %} 
+                  {{ post.author.full_name }}</a>
+              </div>
+              <h3><a href="{{ post.get_url }}">{{ post.title }}</a></h3>
+              <div class=" blog-button d-flex justify-content-between">
+                <a class="button button-style-3" href="{{ post.get_url }}">Learn More  <i class="fas fa-arrow-right"></i></a>
+                <a class="pt-10" href="{{ post.category.get_url }}">{{ post.category.category_name }}</a>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+      <!-- pegination-area-start -->
+      <div class="pagination-area text-center mt-50 mb-60">
+        {% if posts.has_other_pages %}
+          {% if posts.has_previous %}
+            <a href="?page={{posts.previous_page_number}}" class="prev page-numbers"><i class="fas fa-chevron-left"></i></a>
+          {% else %}
+          <span class="page-item disabled" style="pointer-events: none; disabled: disabled"><a href="#" class="page-link"><i class="fas fa-chevron-left"></i></a></span>
+          {% endif %}
+
+          {% for i in posts.paginator.page_range %}
+            {% if posts.number == i %}
+              {% comment %} <span class="page-numbers " aria-current="page">{{i}}</span>
+            {% else %} {% endcomment %}
+              <a href="?page={{i}}" class="page-numbers current">{{i}}</a>
+            {% else %}
+              <a href="?page={{i}}" class="page-numbers">{{i}}</a>
+            {% endif %}
+          {% endfor %}
+          
+          {% if posts.has_next %}
+            <a href="?page={{posts.next_page_number}}" class="next page-numbers"><i class="fas fa-chevron-right"></i></a>
+          {% else %}
+          
+            {% comment %} <span class="page-item disabled"><a class="page-link" href="#">Next</a></span> {% endcomment %}
+          
+            <span class="page-item disabled" style="pointer-events: none; disabled: disabled"><a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a></span>
+          {% endif %}
+        {% endif %}
+      </div>
+      <!-- pegination-area-end -->
+    </div>
+    
+  </div>
+<!-- latest-blog-area-end -->
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+<!-- templates/admin/base_site.html -->
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/custom.css' %}">
+{% endblock %}
+
+{% block extrajs %}
+    {{ block.super }}
+    <script src="{% static 'admin/js/custom.js' %}"></script>
+{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name"><a href="{% url 'admin:index' %}">Theresa Eustace Dashboard</a></h1>
+{% endblock %}
+
+{% block footer %}
+    <div class="footer">
+        <p>Theresa Eustace &copy; {% now 'Y' %}</p>
+    </div>
+{% endblock %}

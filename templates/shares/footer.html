@@ -1,0 +1,118 @@
+{% load static %}
+{% load sass_tags %}
+
+<!-- footer-area start -->
+<footer class="footer-area mt-80">
+    <div class="footer-widget-wrapper pb-5">
+      <div class="container p-0">
+        <div class="row">
+          <!-- widget-area-start -->
+          <!-- about-widget -->
+          <div class="col-lg-4 col-md-12 col-sm-12 mb-10 pt-40 ">
+            <div class="single-widget">
+              <div class="footer-widget-logo mb-15">
+                <a href="{% url 'home' %}" style= "display: flex ">
+                  {% comment %} <img src="{% static 'img/book-open.png' %}" alt="logo" style="padding-right: 5px; color: white;" > {% endcomment %}
+                  <div style="font-size: 20px; font-weight: bold; color: white; margin-left: -10px; ">Theresa</div>
+                  <div style="font-size: 20px; color: gray; font-weight:thin; ">Eustace</div>
+              </a>
+              </div>
+              <p style="padding-right: 20px;">To empower individuals through education and inspiration, helping them lead healthier lives by providing access to the best fitness resources and success stories.</p>
+              <ul class="footer-widget-social-icon">
+                {% comment %} <li><span>Follow us:</span></li> {% endcomment %}
+                <li><a href="https://www.facebook.com/theresaustace"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.twitter.com/theresaustace"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/theresaustace"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/theresaustace"><i class="fab fa-linkedin-in"></i></a></li>
+              </ul>
+              {% comment %} <ul class="footer-information">
+                <li>
+                  <span>Phone : </span>
+                  <a href="tel:15143214455">+1 (514) 321-4455</a>
+                </li>
+                <li>
+                  <span>Email : </span>
+                  <a href="mailto:info@example.com">info@example.com</a>
+                </li>
+              </ul> {% endcomment %}
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+            <div class='row'>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-6 mb-10 pt-40 ">
+                <div class="single-widget">
+                  <h3 class="widget-title">Menu</h3>
+                    <div class="footer-widget-menu">
+                      <ul>
+                        
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="{% url 'book' %}">Books</a></li>
+                        <li><a href="{% url 'tips-page' %}">Resources</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                        <li><a href="{% url 'terms' %}">Terms </a></li>
+                        <li><a href="{% url 'privacy' %}">Privacy Policy</a></li>
+                      </ul>
+                    </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6 col-6 mb-10 pt-40 ">
+                <div class="single-widget">
+                  <h3 class="widget-title">Insight</h3>
+                    <div class="footer-widget-menu">
+                      <ul>
+                        <li><a href="{% url 'posts' %}">Trends</a></li>
+                        {% for category in category_links %}
+                          <li ><a href="{{ category.get_url }}">{{ category.category_name }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-5 col-sm-12 mb-10 pt-40 ">
+                <div class="single-widget">
+                  <h3 class="widget-title">Subscribe</h3>
+                  <div class="footer-widget-newsletter">
+                    <span>Simply opt-in for my weekly newsletter access to actionable Fat2Fit advice and guide sent straight to your inbox. </span>
+                    <form class="newsletter-form" method="post" action="https://sendiio.com/callbacks/subscription/lists">
+                      <input type="email" id="email" name="email" placeholder="Email Address">
+                      <input type="hidden" name="list" id="list" value="49757">
+                      <input type="hidden" name="form" value="8185">
+                      <input type="hidden" name="updated_format" id="updated_format" value="1">
+                      <button type="submit" id="save_form">subscribe</button>
+                    </form>
+                  </div>
+                  {% comment %} <ul class="footer-widget-social-icon">
+                    <li><span>Follow us:</span></li>
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                  </ul> {% endcomment %}
+                </div>
+              </div>
+            </div>
+          </div> 
+         
+          <!-- services-widget -->
+          {% comment %} <div class=" col-lg-2 col-md-6 col-sm-6 col-xs-6">
+            
+          </div> {% endcomment %}
+         
+          {% comment %} <div class="col-lg-4 col-md-6 col-sm-12">
+            
+          </div> {% endcomment %}
+        </div>
+      </div>
+    </div>
+    <!-- copyright-text -->
+    <div class="footer-copyright-text">
+      <div class="container">
+        <div class="row footer-content justify-content-between mb-10">
+          <p>Copyright © {% now 'Y' %} <a class="mt-10" style="padding: 0 7px;" href="https://www.theresaustace.com"> theresaustace.com </a> All Rights Reserved. </p>
+          <p>Made with love  <a class="mt-10" style="padding: 0 7px;" href="https://www.inventivelabs.co"> @Inventivelabs </a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- footer-area end -->

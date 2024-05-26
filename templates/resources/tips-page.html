@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %} | Home {% endblock %}
+{% block content %}
+{% load static %}
+{% load sass_tags %}
+
+ <!-- icon-box-area-end -->
+ <div class="about-icon-box-area sing-service mt-75 mb-80">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="section-title text-center m-auto">
+            
+            <h2 class="mb-50">Library Of Useful Resources</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        {% if tips %}	
+            {% for tip in tips %}
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+          <div class="about-icon-box">
+          
+            <h3 class='text-center'><a href="{% url "tip-detail" tip.slug %}">{{ tip.title }}</a></h3>
+            <p>{{ tip.content|truncatechars:150 | safe }}</p>
+            <div class="row justify-content-between">
+              <a href="{% url "tip-detail" tip.slug %}">Learn More <i class="fas fa-arrow-right"></i></a>
+              <a href="{{ tip.source_url }}" target="_blank">Source <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </>
+        </div>
+        {% endfor %}
+        {% endif %}
+        
+      </div>
+
+      <!-- pegination-area-start -->
+      <div class="pagination-area text-center mt-50 mb-60">
+        {% if tips.has_other_pages %}
+          {% if tips.has_previous %}
+            <a href="?page={{tips.previous_page_number}}" class="prev page-numbers"><i class="fas fa-chevron-left"></i></a>
+          {% else %}
+          <span class="page-item disabled"><a href="#" class="page-link"><i class="fas fa-chevron-left"></i></a></span>
+          {% endif %}
+
+          {% for i in tips.paginator.page_range %}
+            {% if tips.number == i %}
+              {% comment %} <span class="page-numbers " aria-current="page">{{i}}</span>
+            {% else %} {% endcomment %}
+              <a href="?page={{i}}" class="page-numbers current">{{i}}</a>
+            {% else %}
+              <a href="?page={{i}}" class="page-numbers">{{i}}</a>
+            {% endif %}
+          {% endfor %}
+          
+          {% if tips.has_next %}
+            <a href="?page={{tips.next_page_number}}" class="next page-numbers"><i class="fas fa-chevron-right"></i></a>
+          {% else %}
+          
+            {% comment %} <span class="page-item disabled"><a class="page-link" href="#">Next</a></span> {% endcomment %}
+          
+            <span class="page-item disabled"><a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a></span>
+          {% endif %}
+        {% endif %}
+      </div>
+      <!-- pegination-area-end -->
+    </div>
+  </div>
+<!-- icon-box-area-end -->
+
+{% endblock %}

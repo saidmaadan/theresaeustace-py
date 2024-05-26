@@ -1,0 +1,113 @@
+{% load static %}
+{% load sass_tags %}
+
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 	  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Said Maadan">
+    <meta name="description" content="Fat to Fit Expert">
+    <!-- keywords -->
+    <meta name="keywords" content="Theresa Eustace, Fat to Fit best seller author">
+        <!-- Page Title -->
+    <title>Theresa Eustace  {% block title %}    {% endblock %}</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}"/>
+    <link href="https://fonts.googleapis.com/css?family=Barlow:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <!-- Plugin Css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/mobile-menu.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/default.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/custom.scss' %}" />
+</head>
+<body>
+
+    {% include 'shares/header.html' %}
+    {% block content %}
+
+  <!-- content -->
+    {% endblock %}
+
+    {% include 'shares/footer.html' %}
+
+<!-- JavaScript -->
+<!--Animated Cursor-->
+<div id="aimated-cursor">
+    <div id="cursor">
+        <div id="cursor-loader"></div>
+    </div>
+</div>
+<!--Animated Cursor End-->
+
+<!-- Plugin Js-->
+
+<script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
+<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'js/slick.min.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script src="{% static 'js/mobile-menu.js' %}"></script>
+<script src="{% static 'js/plugins.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+<!-- Custom Js -->
+<script src="{% static 'js/custom.js' %}"></script>
+
+<!-- Sendio Js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://sendiio.com/assets/js/form_assets.js"></script>
+
+<!-- Bootoast Js -->
+<script src="https://unpkg.com/bootoast@1.0.1/dist/bootoast.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/bootoast@1.0.1/dist/bootoast.min.css">
+
+
+<script>
+    function toast(message, type) {
+      bootoast.toast({
+        position: 'rightTop',
+        message,
+        type,
+      });
+    }
+
+    {% if messages %}
+
+    {% for message in messages %}
+    toast('{{ message }}', '{{ message.tags }}');
+    {% endfor %}
+
+    {% endif %}
+  </script>
+
+  <script>
+    /* ------ # Page piling ------*/
+    $(document).ready(function() {
+        $('#pagepiling-horizontal').pagepiling({
+            scrollingSpeed: 280,
+            menu: '.xg-vertical-menu',
+            anchors: ['home', 'about', 'portfolio', 'experience', 'service', 'pricing', 'blog', 'contact'],
+            loopTop: true,
+            loopBottom: true,
+            animateAnchor: true,
+            direction: 'horizontal',
+        });
+    });
+</script>
+
+</body>
+	
+</html>

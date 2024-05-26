@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block title %} | {{ post.title }} {% endblock %}
+{% block content %}
+{% load static %}
+{% load sass_tags %}
+
+<!-- blog-details-area-start -->
+<div class="blog-details-area pt-20 pb-20">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-8 col-lg-8">
+          <div class="single-blog-details-desc mb-40">
+            <div class="single-blog-details-content">
+              <div class="blog-details-content-img mb-30">
+                <img class="img" src="{{ post.image.url }}" alt="{{ post.title }}" style="width:100%; max-height: 500px; object-fit: cover; background-size;cover;">
+              </div>
+              <span>By <a href="#">{{ post.author.full_name }}</a> / {{ post.date }} </span>
+              <h3>{{ post.title }}.</h3>
+              {% if post.headline %}
+              <div class="blog-content-quote">
+                <i class="fas fa-quote-left"></i> 
+                <p>{{ post.headline }}</p>
+              </div>
+              {% else %}
+              <hr>
+              {% endif %}
+              <p>{{ post.content | safe }}</p>
+            
+              
+              {% comment %} <p>{{ post.content|truncatechars:"200 + 1" | safe }}</p> {% endcomment %}
+              <div class="row mt-10">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <div class="blog-content-tags">
+                    {% comment %} <ul>
+                      <li>Tags:</li>
+                      <li><a href="#">{{ post.tags.caption }}</a></li>
+                    
+                    </ul> {% endcomment %}
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4">
+          <!-- right sidebar start-->
+          <div class="right-sidebar">
+            <!-- search widget -->
+            <div class="single-widget">
+              <h3 class="widget-title">Search</h3>
+              <div class="search-form relative">
+                <form action="{% url 'search' %}" method="GET" role="search" class="mobile-nav-search-form">
+                  {% csrf_token %}
+                  <input type="search" name="keyword" placeholder="Search..." name="search">
+                  <input type="hidden" name="type" value="post">
+                  <button type="submit" name="submit"><i class="fas fa-search"></i></button>
+                </form>
+              </div>
+            </div>
+
+            <!-- categorie widget -->
+            <div class="single-widget">
+              <h3 class="widget-title">Categories</h3>
+              <div class="categories-list">
+                <ul>
+                  {% for category in category_links %}
+                    <li><a href="{{ category.get_url }}">{{ category.category_name }} <span><i class="fas fa-chevron-right"></i></span></a></li>
+                  {% endfor %}
+                  
+                </ul>
+              </div>
+            </div>
+            <!-- latest blog widget -->
+            <div class="single-widget">
+              <h3 class="widget-title">Latest News</h3>
+              {% if side_posts %}	
+              {% for post in side_posts %}
+              <div class="widgets-blog-content">
+                <div class="widget-blog-img">
+                  <img class="img" src="{{ post.image.url }}" alt="{{ post.title }}">
+                </div>
+                <div class="widgets-blog-img-content">
+                  <span class="blog-meta"><i class="fas fa-calendar-alt"></i> {{ post.date }}</span>
+                  <h3> <a href="{{ post.get_url }}">{{ post.title }}</a></h3>
+                </div>
+              </div>
+              
+              {% endfor %}
+              {% endif %}
+              
+            </div>
+            
+            <!-- tags widget -->
+            {% comment %} <div class="single-widget">
+              <h3 class="widget-title">Tags</h3>
+              <div class="tag-clouds">
+                <ul>
+                  <li><a href="#">Agency</a></li>
+                  <li><a href="#">Digital marketing</a></li>
+                  <li><a href="#">Planning</a></li>
+                  <li><a href="#">Analysis</a></li>
+                  <li><a href="#">SEO</a></li>
+                  <li><a href="#">Web development</a></li>
+                  <li><a href="#">Graphic design</a></li>
+                  <li><a href="#">Marketing</a></li>
+                </ul>
+              </div>
+            </div> {% endcomment %}
+          </div>
+          <!-- right-sidebar-end -->
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- blog-details-area-end-->
+{% endblock %}

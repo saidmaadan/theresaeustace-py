@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %} | Home {% endblock %}
+{% block content %}
+{% comment %} {% block humanize %} {% endcomment %}
+{% load static %}
+
+<div class="team-area mt-80">
+  <div class="container">
+    <div class="row">
+      
+      {% if books %}	
+      {% for book in books %}
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-30">
+          <div class="single-member-details">
+            <div class="team-member-box">
+              <div class="team-member-img">
+                {% if book.images %}
+                <img class="img" src="{{ book.images.url }}" alt="image" style="min-height: 280px; max-height: 280px; background-size; cover; ">
+                {% else %}
+                <img class="" src="https://sophiabent.s3.us-west-2.amazonaws.com/media/photos/book/SB-The_Pregnancy_Pact-BOOK.png" alt="{{ book.title }}">
+                {% endif %}
+              </div>
+              <div class="team-member-content-box1 text-center">
+                <div class="team-member-content">
+                  <h3 style="font-size: 16px; font-weight: 400;">{{ book.title }} {{ book.sub_title }}</h3>
+              
+                </div>
+              </div>
+              <div class="team-member-content-box2 text-center">
+                <div class="team-member-content">
+                  <div class="about-us-button">
+                    <a class="button button-style-3" href="{{ book.amazon_url }}">Buy Now <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                  <a href="{{ book.get_url }}">
+                  <h3 class="mt-20 mb-10 " style="font-size: 18px;"><span class="pr-10">{{ book.title }}</span>{{ book.sub_title }}</h3></a>
+                
+              
+                  <p>{{ book.description|truncatechars:100 | safe }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      {% endif %}
+      
+      
+    </div>
+    <!-- pegination-area-start -->
+    <div class="pagination-area text-center mt-50">
+      {% if books.has_other_pages %}
+        {% if books.has_previous %}
+          <a href="?page={{books.previous_page_number}}" class="prev page-numbers"><i class="fas fa-chevron-left"></i></a>
+        {% else %}
+        <a href="#" class="prev page-numbers " style="pointer-events: none; disabled: disabled"><i class="fas fa-chevron-left"></i></a>
+        {% endif %}
+        {% for i in books.paginator.page_range %}
+          {% if books.number == i %}
+            <span class="page-numbers current" aria-current="page">{{i}}</span>                 
+          {% else %}
+            <a href="?page={{i}}" class="page-numbers">{{i}}</a>
+                     
+          {% endif %}
+        {% endfor %}
+        {% if books.has_next %}
+          <a href="?page={{books.next_page_number}}" class="next page-numbers"><i class="fas fa-chevron-right"></i></a>
+        {% else %}
+          <a href="#" class="next page-numbers disabled " style="pointer-events: none; disabled: disabled"><i class="fas fa-chevron-right disabled" style="pointer-events: none; disabled: disabled"></i></a>           
+        {% endif %}
+      {% endif %}
+    </div>
+    <!-- pegination-area-end -->
+    
+  </div>
+</div>
+
+
+{% endblock %}
+

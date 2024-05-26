@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} | Home {% endblock %}
+{% block content %}
+{% load static %}
+{% load sass_tags %}
+
+<div class="home-icon-box-area sing-service mt-75 mb-80">
+    <div class="container">
+      
+        <div class="row">
+            <div class="col-12">
+                <div class="home-icon-box">
+                
+                    <h3 class='text-center'>Thank You</h3>
+                    <p>At Fat to Fit Bookstore, we believe that everyone has the potential to transform their health and wellness. Whether you're just starting your fitness journey, looking to refine your routine, or ready to take the next big step, we're here to support you. Our straightforward approach provides you with practical advice, motivation, and resources to help you stay on track and reach your goals.
+
+                        Join us as we explore ways to improve your fitness, nutrition, and overall well-being. Let's embark on this journey together and discover how to live a vibrant, healthy life!
+                    </p>
+                    <a href="{% url 'home' %}">Go back to the home page <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% block title %} | Contact Us {% endblock %}
+{% block content %}
+{% load static %}
+{% load sass_tags %}
+
+<main>
+  
+  
+<!-- contact-iconbox-area-start -->
+  <div class="contact-iconbox-area mt-40">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-30">
+          <div class="contact-icon-box">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-icon-text">
+              <h3>Our Address:</h3>
+              <p>600 Congress Avenue <br> Austin TX 78701 </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-30">
+          <div class="contact-icon-box">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-icon-text">
+              <h3>Phone:</h3>
+              <p>Mobile: <a href="tel:+1-713-578-8899">(+1)-512-999-8899</a></p>
+              <p>E-mail: <a href="mailto:info@theresaeustace.com">info@theresaeustace.com</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-30">
+          <div class="contact-icon-box">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-icon-text">
+              <h3>Hours of Operation:</h3>
+              <p>Monday - Friday: 08:00 - 18:00</p>
+              <p>Sunday & Saturday: 12:30 - 19:00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- contact-iconbox-area-end -->
+
+<!-- talk-area-start -->
+<div class="talk-area mt-50 " style="display: none;">
+  <div class="containers">
+    <div class="row">
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+        
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <div class="talk-form">
+          
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <input type="text" name="name" id="name" required="" data-error="Please enter your name" placeholder="Name">
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <input type="email" name="email" id="email" required="" data-error="Please enter your email" placeholder="Email">
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <input type="text" name="phone_number" id="phone_number" placeholder="Phone">
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <input type="text" name="msg_subject" id="msg_subject" required="" data-error="Please enter your subject" placeholder="Subject">
+              </div>
+              <div class="col-lg-12 col-md-12">
+                <textarea name="message" id="message" cols="30" rows="6" required="" data-error="Write your message" placeholder="Your message"></textarea>
+              </div>
+              
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- talk-area-end -->
+
+    <!-- talk-area-start -->
+      <div class="talk-area mt-50">
+        <div class="containers">
+          <div class="row">
+            <div class="col-xl-8 col-lg-8 d-none d-lg-block ">
+              <div class="talk-img-wrapper pt-70">
+                <div class="talk-img relative">
+                  <img class="img" src="{% static 'img/con.png' %}" alt="image">
+                </div>
+                <div class="talk-information">
+                  <div class="talk-content mb-35">
+                    <h3>Let’s talk</h3>
+                    <p>For any inquiries, please email us or contact us.</p>
+                  </div>
+                  <ul class="talk-list">
+                    <li>
+                      <span>Address:</span>
+                      600 Congress Avenue <br>
+                      Austin, TX 78701
+                    </li>
+                    <li>
+                      <span>Phone:</span>
+                      <a href="tel:17135788899">+1 (512) 999-8899</a>
+                      <a href="tel:17135788899">+1 (713) 666-5566</a>
+                    </li>
+                    <li>
+                      <span>Email:</span>
+                      <a href="mailto:info@theresaeustace.com">info@theresaeustace.com</a>
+                      <a href="mailto:contact@theresaeustace.com">contact@theresaeustace.com</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+              <div class="talk-form">
+                <form action="{% url 'contact' %}" method="POST" enctype="multipart/form-data" id="talk-contact-form">
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                      <input type="text" name="name" id="name" required="" data-error="Please enter your name" placeholder="Name">
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                      <input type="email" name="email" id="email" required="" data-error="Please enter your email" placeholder="Email">
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                      <input type="text" name="phone" id="phone_number" required="" data-error="Please enter your number" placeholder="Phone">
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                      <input type="text" name="subject" id="msg_subject" required="" data-error="Please enter your subject" placeholder="Subject">
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                      <textarea name="message" id="message" cols="30" rows="6" required="" data-error="Write your message" placeholder="Your message"></textarea>
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                      <div class="send-btn">
+                          <button type="submit" class="button button-style-3" style="pointer-events: all; cursor: pointer;">Send message <i class="fas fa-arrow-right"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- talk-area-end -->
+
+    <!-- Website Body Start -->
+  </main>
+ 
+
+{% endblock %}

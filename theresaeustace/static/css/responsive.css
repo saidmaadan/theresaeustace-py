@@ -1,0 +1,351 @@
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+} 
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+	.header-bottom .header-logo a {
+		font-size: 35px;
+	}
+	.about-us-area .about-us-content {
+		margin-top: 0;
+	}
+	.about-us-area .about-us-content .funfacts-list li {
+		margin-right: 10px;
+	}
+	.about-us-area .about-us-content .funfacts-list li .list i {
+		font-size: 35px;
+	}
+	.about-us-area .about-us-content .funfacts-list li .list h3 {
+		font-size: 35px;
+	}
+	.about-us-area .about-us-content .funfacts-list li .list p {
+		font-size: 18px;
+	}
+	.about-us-area .about-us-img-content {
+		bottom: 0px;
+		right: 15px;
+	}
+	.about-icon-box-area {
+		margin-top: 80px;
+	}
+	.why-choose-us-area {
+		overflow: hidden;
+	}
+	.talk-area .talk-form {
+		padding: 30px;
+		margin-left: -213px;
+	}
+	.contact-iconbox-area .contact-icon-box {
+		padding: 40px 25px;
+	}
+	.contact-iconbox-area .contact-icon-box .contact-icon-text h3 {
+		font-size: 20px;
+	}
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.header-area .header-top{
+		display: none!important;
+	}
+	.about-us-area .about-us-content {
+		margin-top: 100px !important;
+		width: 100%;
+		text-align: center;
+		margin: auto;
+	}
+	.about-us-area .about-us-content .section-title {
+		max-width: 480px;
+		margin: auto;
+	}
+	.about-us-area .about-us-img {
+		margin-right: 0px;
+		width: 100%;
+	}
+	.about-us-area .about-us-content {
+		margin-top: 100px;
+	}
+	.why-choose-us-area {
+		margin-top: 75px;
+	}
+	.why-choose-us-content {
+		margin-bottom: 40px;
+	}
+	.services-area {
+		margin-top: 263px;
+	}
+	.talk-area {
+		margin-top: 40px;
+	}
+	.talk-area .talk-form {
+		margin-left: 0;
+		margin-top: 40px;
+	}
+	.overview-inner-box .overview-button a {
+		padding: 15px 45px;
+	}
+	.overview-inner-box .overview-content h3 {
+		font-size: 36px;
+	}
+	.about-icon-box-area {
+		margin-top: 80px;
+	}
+	.about-icon-box-area.sing-service{
+		margin-top: 270px;
+	}
+	.services-area.services-page {
+		margin-top: 75px;
+		margin-bottom: -25px
+	}
+	.why-choose-us-img .choose-us-img1 {
+		right: -60px;
+	}
+}
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.header-area .header-top{
+		display: none!important;
+	}
+	.slider-active .single-slider {
+		height: 550px;
+	}
+	.slider-active .single-slider .slider-content h1 {
+		font-size: 55px;
+	}
+	.slider-active .single-slider .slider-content p {
+		font-size: 25px;
+		margin-bottom: 15px;
+	}
+	.about-us-area .about-us-content {
+		margin-top: 100px !important;
+		width: 100%;
+		text-align: center;
+		margin: auto;
+	}
+	.about-us-area .about-us-content .section-title {
+		margin: auto;
+	}
+	.about-us-area .about-us-content .funfacts-list li {
+		margin-right: 30px;
+	}
+	.talk-area .talk-form {
+		margin-left: 0;
+		margin-top: 40px;
+	}
+	.why-choose-us-area {
+	margin-top: 75px;
+	}
+	.why-choose-us-content {
+		margin-bottom: 40px;
+	}
+	.services-area {
+		margin-top: 35px;
+	}
+	.talk-area .talk-img-wrapper .talk-information {
+		top: 15px;
+	}
+	.talk-content{
+		margin-bottom: 15px;
+	}
+	.talk-img-wrapper .talk-information .talk-list li {
+		margin-bottom: 15px;
+	}
+	.talk-img-wrapper {
+		padding-top: 0;
+	}
+	.overview-inner-box .overview-content h3 {
+		font-size: 25px;
+	}
+	.overview-inner-box .overview-button a {
+		padding: 11px 15px;
+	}
+	.footer-area .footer-widget-wrapper {
+		padding-top: 40px;
+	}
+	.about-icon-box-area {
+		margin-top: 80px;
+	}
+	.services-area.services-page {
+		margin-top: 75px;
+		margin-bottom: -25px;
+	}
+	.blog-content-tags {
+		margin-bottom: 30px;
+	}
+	.blog-content-shares.f-right {
+		float: left;
+	}
+	#mobile-menu ul li a i {
+		margin-left: 5px!important;
+	}
+}
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+	.header-area .header-top{
+		display: none!important;
+	}
+	.slider-active .single-slider {
+		height: 500px;
+	}
+	.slider-active .slick-dots {
+		bottom: 20px;
+	}
+	.slider-active .single-slider .slider-content h1 {
+		font-size: 40px;
+	}
+	.slider-active .single-slider .slider-content p {
+		font-size: 20px;
+	}
+	.about-us-area .about-us-content {
+		margin-top: 100px !important;
+		width: 100%;
+		text-align: center;
+		margin: auto;
+	}
+	.about-us-area .about-us-content .section-title {
+		margin: auto;
+	}
+	.about-us-area .about-us-content .funfacts-list li .list p {
+		margin: auto;
+	}
+	.about-us-area .about-us-img {
+		margin-right: 0;
+		width: 100%;
+	}
+	.about-us-area .about-us-img-content {
+		max-width: 320px;
+		padding: 20px;
+	}
+	.about-us-area .about-us-img-content h2{
+		font-size: 18px;
+	}
+	.why-choose-us-area {
+		margin-top: 73px;
+	}
+	.section-title h2 {
+		font-size: 30px;
+	}
+	.section-title h2 span{
+    	font-size: 30px;
+	}
+	.section-title span {
+		font-size: 18px;
+	}
+	.about-us-area .about-us-content .funfacts-list li {
+		display: block;
+ 		margin-right: 0px;
+		margin-bottom: 20px;
+	}
+	.services-area .single-generating {
+		display: block !important;
+	}
+
+	.single-generating .generating-cap {
+		padding-left: 0px;
+		margin-top: 50px;
+	}
+	.talk-area .talk-img,
+	.talk-area .talk-img img{
+		height: 360px;
+	}
+	.overview-inner-box .overview-content h3 {
+		font-size: 25px;
+		margin-bottom: 30px;
+	}
+	.overview-area .overview-inner-box {
+		padding: 30px 30px 45px 30px;
+	}
+	.overview-inner-box .overview-content span {
+		font-size: 16px;
+		margin-bottom: 5px;
+	}
+	.talk-area .talk-form {
+		margin-left: 0;
+		margin-top: 40px;
+		padding: 20px;
+	}
+	.services-area {
+		margin-top: 75px;
+	}
+	.services-area.services-page {
+		margin-bottom: -25px;
+	}
+	.talk-area .talk-content{
+		margin-bottom: 15px;
+	}
+	.talk-area .talk-img-wrapper {
+	padding-top: 0;
+	}
+	.talk-area .talk-img-wrapper .talk-information {
+		top: 30px;
+		left: 35px;
+	}
+	.talk-img-wrapper .talk-information .talk-list li {
+		padding-left: 100px;
+		margin-bottom: 15px;
+	}
+	.talk-img-wrapper .talk-information .talk-content h3 {
+		font-size: 40px;
+	}
+	.talk-img-wrapper .talk-information .talk-content p {
+		font-size: 16px;
+		line-height: 1;
+	}
+	.single-latest-blog .latest-blog-content h3 {
+		font-size: 18px;
+	}
+	.overview-button {
+		text-align: left;
+	}
+	.footer-widget-wrapper .single-widget {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	.breadcrumb-area .breadcrumb-content {
+		padding: 130px 0;
+	}
+	.breadcrumb-content .breadcrumb-title h2 {
+		font-size: 60px;
+	}
+	.about-icon-box-area {
+		margin-top: 80px;
+	}
+	.blog-content-tags {
+		margin-bottom: 30px;
+	}
+	.blog-content-shares.f-right {
+		float: left;
+	}
+	.single-blog-details-content .blog-details-author-post .blog-details-author-img {
+		display: block;
+		margin-bottom: 25px;
+		margin-right: 0;
+		width: 100%;
+	}
+	.single-blog-details-content .blog-details-author-post .blog-details-author-img img{
+		width: 100%;
+	}
+	.single-blog-details-desc .single-blog-details-content .blog-details-author-post {
+	padding: 28px;
+	}
+	.single-blog-details-content .blog-details-comments .comment-box {
+		position: relative;
+		padding-left: 0px;
+		padding-top: 160px;
+	}
+	.single-blog-details-content .blog-details-comments .comment-box a.reply-btn {
+		top: 60px;
+		right: 0px;
+	}
+	#mobile-menu ul li a i {
+		margin-left: 5px!important;
+	}
+}
+
+
+
+

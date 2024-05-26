@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %} | Home {% endblock %}
+{% block content %}
+{% comment %} {% block humanize %} {% endcomment %}
+{% load static %}
+
+<div class="services-area services-page mt-20">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="single-generating d-flex mb-30">
+          <div class="generating-icon" >
+            {% if single_book.images %}
+              <img class="ms-auto " style="width: 250px; height: 250px; object-fit: cover;" src="{{ single_book.images.url }}" alt="" >
+            {% else %}
+              <img class="ms-auto img-fluid" style="width: 296px; height: 296px; object-fit: cover;" src="https://sophiabent.s3.us-west-2.amazonaws.com/media/photos/book/SB-The_Pregnancy_Pact-BOOK.png" alt="{{ single_book.title }}">
+            {% endif %}
+          </div>
+          <div class="generating-cap">
+            <h3>{{ single_book.title }}</h3>
+              <h4 >{{ single_book.sub_title }}</h4>
+              <p>{{ single_book.description | safe }}</p>
+              <div class="about-us-button">
+                <a class="button button-style-3" href="{{ single_book.amazon_url }}">Buy Now <i class="fas fa-arrow-right"></i></a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
