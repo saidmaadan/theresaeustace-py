@@ -25,10 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 SECRET_KEY = config('SECRET_KEY')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 # DEBUG = config('DEBUG', default=True, cast=bool)
 DEBUG = config('DEBUG', default=False, cast=bool)
+# DEBUG = os.getenv('DEBUG', default=False, cast=bool),
 ALLOWED_HOSTS = ["www.theresaeustace.com",
                  "http://www.theresaeustace.com", "https://www.theresaeustace.com", "theresaeustace.com", "https://theresaeustace.up.railway.app", "*"]
 
@@ -104,6 +106,17 @@ AUTH_USER_MODEL = 'accounts.Account'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.getenv('NAME'),
+#         'USER': os.getenv('USER'),
+#         'PASSWORD': os.getenv('PASSWORD'),
+#         'HOST': os.getenv('HOST'),
+#         'PORT': os.getenv('PORT'),
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': config('ENGINE'),
@@ -111,6 +124,7 @@ DATABASES = {
         'USER': config('USER'),
         'PASSWORD': config('PASSWORD'),
         'HOST': config('HOST'),
+        'PORT': config('PORT'),
     }
 }
 
