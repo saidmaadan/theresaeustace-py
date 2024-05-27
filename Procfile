@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn theresaeustace.wsgi:application --log-file -
+web: gunicorn theresaeustace.wsgi
