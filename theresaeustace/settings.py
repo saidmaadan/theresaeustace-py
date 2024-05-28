@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
 # DEBUG = config('DEBUG', default=True, cast=bool)
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 # DEBUG = os.getenv('DEBUG', default=False, cast=bool),
 ALLOWED_HOSTS = ["www.theresaeustace.com",
                  "http://www.theresaeustace.com", "https://www.theresaeustace.com", "theresaeustace.com", "https://theresaeustace.up.railway.app", "theresaeustace.up.railway.app", "0.0.0.0", "localhost", "*"]
