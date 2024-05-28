@@ -32,7 +32,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 # DEBUG = os.getenv('DEBUG', default=False, cast=bool),
 ALLOWED_HOSTS = ["www.theresaeustace.com",
-                 "http://www.theresaeustace.com", "https://www.theresaeustace.com", "theresaeustace.com", "https://theresaeustace.up.railway.app", "theresaeustace.up.railway.app", "*"]
+                 "http://www.theresaeustace.com", "https://www.theresaeustace.com", "theresaeustace.com", "https://theresaeustace.up.railway.app", "theresaeustace.up.railway.app", "0.0.0.0", "localhost", "*"]
 
 CSRF_TRUSTED_ORIGINS = ['https://theresaeustace.up.railway.app',
                         'https://theresaeustace.com', 'https://www.theresaeustace.com']
