@@ -128,7 +128,7 @@ DATABASES = {
     }
 }
 
-# if os.environ.get('DJANGO_PRODUCTION'):
+# # if os.environ.get('DJANGO_PRODUCTION'):
 DATABASES = {'default': dj_database_url.config(
     default='postgres://postgres:config(PASSWORD)@localhost/config(NAME)')}
 
